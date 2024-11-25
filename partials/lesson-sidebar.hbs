@@ -1,0 +1,16 @@
+{{!-- partials/lesson-sidebar.hbs --}}
+<div class="lessons-sidebar">
+  <h2 class="sidebar-title">Lessons</h2>
+  <ul class="lessons-list">
+    {{#get "posts" filter="tag:lesson" order="published_at asc"}}
+      {{#foreach posts}}
+        <li class="lesson-item {{#if (eq id ../post.id)}}active{{/if}}">
+          <a href="{{url}}" class="lesson-link">
+            <span class="lesson-number">Lesson {{@number}}</span>
+            <span class="lesson-title">{{title}}</span>
+          </a>
+        </li>
+      {{/foreach}}
+    {{/get}}
+  </ul>
+</div>
